@@ -32,12 +32,21 @@ public class LoginController {
 	@GetMapping("/login")
 	public String login(Model model) {
 
-		// Bind empty User and LoginUser objects to the JSP
+		// Bind empty LoginUser object to the JSP
+		// to capture the form input
+
+		model.addAttribute("newLogin", new LoginUser());
+		return "login.jsp";
+	}
+	
+	@GetMapping("/register")
+	public String newRegister(Model model) {
+
+		// Bind empty User object to the JSP
 		// to capture the form input
 
 		model.addAttribute("newUser", new User());
-		model.addAttribute("newLogin", new LoginUser());
-		return "login.jsp";
+		return "register.jsp";
 	}
 
 	@GetMapping("/logout")
@@ -65,8 +74,8 @@ public class LoginController {
 		if (result.hasErrors()) {
 			// Be sure to send in the empty LoginUser before
 			// re-rendering the page.
-			model.addAttribute("newLogin", new LoginUser());
-			return "login.jsp";
+//			model.addAttribute("newLogin", new LoginUser());
+			return "register.jsp";
 		}
 
 		// No errors!

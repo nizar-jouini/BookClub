@@ -28,27 +28,43 @@
 <title>Login and Registration</title>
 </head>
 <body>
-	<div class="wrapper">
-		<form:form action="/login" method="post" modelAttribute="newLogin">
-			<h1>Login</h1>
+	<div class="wrapper-register">
+		<form:form action="/register" method="post" modelAttribute="newUser">
+			<h1>Register</h1>
+			<div class="input-box">
+				<form:input path="firstName" type="text" placeholder="First Name" />
+			</div>
+			<div class="errors">
+				<form:errors path="firstName" class="text-danger" />
+			</div>
+			<div class="input-box">
+				<form:input path="lastName" type="text" placeholder="Last Name" />
+			</div>
+			<div class="errors">
+				<form:errors path="lastName" class="text-danger" />
+			</div>
 			<div class="input-box">
 				<form:input path="email" type="email" placeholder="Email" />
-				<i class="bx bxs-user"></i>
 			</div>
 			<div class="errors">
 				<form:errors path="email" class="text-danger" />
 			</div>
 			<div class="input-box">
 				<form:password path="password" placeholder="Password" />
-				<i class="bx bxs-lock-alt"></i>
 			</div>
 			<div class="errors">
 				<form:errors path="password" class="text-danger" />
 			</div>
-			<button type="submit" class="btn">Login</button>
+			<div class="input-box">
+				<form:password path="confirm" placeholder="Confirm Password" />
+			</div>
+			<div class="errors">
+				<form:errors path="confirm" class="text-danger" />
+			</div>
+			<button type="submit" class="btn">Register</button>
 			<div class="register-link">
 				<p>
-					Don't have an account? <a href="/register">Register</a>
+					Already have an account? <a href="/login">Login</a>
 				</p>
 			</div>
 		</form:form>
