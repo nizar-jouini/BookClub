@@ -46,19 +46,25 @@
 					</div>
 					<h5>
 						Added by:
-						<c:out value="${oneBook.user.firstName}"></c:out>
-						<br> Added on:
+						<c:out value="${oneBook.user.firstName} ${oneBook.user.lastName}"></c:out>
+					</h5>
+					<h5>
+						Added on:
 						<fmt:formatDate type="date" dateStyle="medium"
 							value="${oneBook.createdAt}" />
 						@
 						<fmt:formatDate type="time" timeStyle="short"
 							value="${oneBook.createdAt}" />
-						<br> Last updated on:
+					</h5>
+					<h5>
+						Last updated on:
 						<fmt:formatDate type="date" dateStyle="medium"
 							value="${oneBook.updatedAt}" />
 						@
 						<fmt:formatDate type="time" timeStyle="short"
 							value="${oneBook.updatedAt}" />
+					</h5>
+					<h5>
 						<div class="d-flex mx-3">
 							<div class="w-25"></div>
 							<div class="w-75">
@@ -68,19 +74,19 @@
 						<div class="d-flex align-items-start mb-3">
 							<form:label path="description" class="form-label w-25 fs-5">Description:</form:label>
 							<form:input path="description" value="${oneBook.description}"
-								class="form-control w-75 text-start" style="height: 100px"></form:input>
+								class="form-control w-75 text-start" style="height: 100px;"></form:input>
 						</div>
 					</h5>
-					<div class="mt-4 d-flex justify-content-end align-items-center">
-						<button type="submit" class="btn btn-primary w-25 me-3"
-							style="box-shadow: 5px 5px 5px black;">Update</button>
-						<form action="/books/${oneBook.id}/delete" method="post">
-							<input type="hidden" name="_method" value="delete">
-							<button type="submit" class="btn btn-danger w-25"
-								style="box-shadow: 5px 5px 5px black;">delete</button>
-						</form>
-					</div>
 				</form:form>
+				<div class="mt-4 d-flex justify-content-end align-items-center">
+					<button type="submit" class="btn btn-primary w-25 me-3"
+						style="box-shadow: 5px 5px 5px black;">Update</button>
+					<form action="/books/${oneBook.id}/delete" method="post">
+						<input type="hidden" name="_method" value="delete">
+						<button type="submit" class="btn btn-danger"
+							style="box-shadow: 5px 5px 5px black; width: 130px;">delete</button>
+					</form>
+				</div>
 			</div>
 			<div class="d-flex flex-column justify-content-start"
 				style="width: 40%;">

@@ -42,19 +42,25 @@
 				<h5>
 					Added by:
 					<c:out value="${oneBook.user.firstName} ${oneBook.user.lastName}"></c:out>
-					<br> Added on:
+				</h5>
+				<h5>
+					Added on:
 					<fmt:formatDate type="date" dateStyle="medium"
 						value="${oneBook.createdAt}" />
 					@
 					<fmt:formatDate type="time" timeStyle="short"
 						value="${oneBook.createdAt}" />
-					<br> Last updated on:
+				</h5>
+				<h5>
+					Last updated on:
 					<fmt:formatDate type="date" dateStyle="medium"
 						value="${oneBook.updatedAt}" />
 					@
 					<fmt:formatDate type="time" timeStyle="short"
 						value="${oneBook.updatedAt}" />
-					<br> Description:
+				</h5>
+				<h5>
+					Description:
 					<c:out value="${oneBook.description}"></c:out>
 				</h5>
 			</div>
@@ -67,7 +73,8 @@
 							-
 							<c:out
 								value="${usersWhoFavor.firstName} ${usersWhoFavor.lastName}"></c:out>
-							<span class="ms-2"> <c:if test="${usersWhoFavor.id == user.id}">
+							<span class="ms-2"> <c:if
+									test="${usersWhoFavor.id == user.id}">
 									<c:if test="${fn:contains(oneBook.usersWhoFavor, user)}">
 										<a href="/books/favorites/remove/${oneBook.id}">Un-Favorite</a>
 									</c:if>

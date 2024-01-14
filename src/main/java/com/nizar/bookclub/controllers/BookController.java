@@ -197,7 +197,7 @@ public class BookController {
 			if (result.hasErrors()) {
 				return "books/showBookForCreator.jsp";
 			} else {
-
+				
 				User user = userServ.findById(userId);
 				Book thisBook = bookServ.findbook(id);
 				updatedBook.setUser(user);
@@ -220,6 +220,7 @@ public class BookController {
 		if (userId == null) {
 			return "redirect:/";
 		} else {
+			
 			bookServ.deletebook(id);
 		}
 
